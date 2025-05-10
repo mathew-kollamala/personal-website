@@ -28,7 +28,6 @@ Inside this project, you'll find the following folders and files:
 │       ├── about.astro
 │       ├── portfolio.astro
 │       ├── blog.astro
-│       ├── contact.astro
 │       └── 404.astro
 ├── test/
 ├── .config/
