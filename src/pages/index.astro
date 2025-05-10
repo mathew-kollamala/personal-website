@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LogoCarousel from '../components/LogoCarousel.astro';
+
+// Client logos
+const clientLogos = [
+  { name: 'Segment.io' },
+  { name: 'AT&T' },
+  { name: 'Verizon' },
+  { name: 'Lumen Technologies' },
+  { name: 'Hewlett Packard Enterprise' },
+  { name: 'HPI' },
+  { name: 'DXC Technologies' },
+  { name: 'Seagate' },
+  { name: 'Palo Alto Networks' },
+  { name: 'Extreme Networks' },
+  { name: 'US Air Force' },
+  { name: 'Airbus' },
+  { name: 'Boeing' },
+  { name: 'NBC Universal' },
+  { name: 'Veritas Technologies' },
+  { name: 'Worldpay' },
+  { name: 'Amerisourcebergen' },
+  { name: 'McKesson' },
+];
+---
+
+<Layout title="Home | My Personal Website">
+  <section class="hero">
+    <h1>Welcome to My Personal Website</h1>
+    <p>A showcase of my work, thoughts, and experiences.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm a passionate professional dedicated to creating meaningful digital experiences.
+      This website serves as a platform to share my journey, projects, and insights.
+    </p>
+    <a href="/about" class="btn">Learn More</a>
+  </section>
+
+  <section id="portfolio">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <!-- Project cards will go here -->
+      <div class="project-card">
+        <h3>Project 1</h3>
+        <p>Description of project 1</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 2</h3>
+        <p>Description of project 2</p>
+      </div>
+      <div class="project-card">
+        <h3>Project 3</h3>
+        <p>Description of project 3</p>
+      </div>
+    </div>
+    <a href="/portfolio" class="btn">View All Projects</a>
+  </section>
+
+  <LogoCarousel logos={clientLogos} />
+
+  <section id="blog">
+    <h2>Latest Articles</h2>
+    <div class="blog-posts">
+      <!-- Blog post previews will go here -->
+      <div class="blog-post">
+        <h3>Article 1</h3>
+        <p>Preview of article 1</p>
+      </div>
+      <div class="blog-post">
+        <h3>Article 2</h3>
+        <p>Preview of article 2</p>
+      </div>
+    </div>
+    <a href="/blog" class="btn">Read More</a>
+  </section>
+
+  <section id="contact">
+    <h2>Book an Appointment</h2>
+    <p>Schedule time to discuss your passions, ideas, or projects.</p>
+    <a href="/contact" class="btn">Book Appointment</a>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 80px 0;
+    background-color: var(--color-background-alt);
+    border-radius: 8px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, transparent 100%);
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .hero > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--color-primary-700);
+    font-weight: 700;
+  }
+
+  section {
+    margin-bottom: 60px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: var(--color-background-alt);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+
+  h2 {
+    margin-bottom: 24px;
+    color: var(--color-primary-700);
+    font-weight: 600;
+  }
+
+  .projects-grid,
+  .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 30px 0;
+  }
+
+  .project-card,
+  .blog-post {
+    padding: 24px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border: 1px solid var(--color-border);
+  }
+
+  .project-card:hover,
+  .blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(217, 119, 87, 0.1);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--color-primary-700);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: 24px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+
+  .btn:hover {
+    background-color: var(--color-primary-800);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(217, 119, 87, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid,
+    .blog-posts {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

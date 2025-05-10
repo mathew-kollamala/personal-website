@@ -1,0 +1,124 @@
+---
+interface Props {
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
+  class?: string;
+}
+
+const {
+  href,
+  type = 'button',
+  variant = 'primary',
+  size = 'medium',
+  class: className = '',
+} = Astro.props;
+
+const variantClasses = {
+  primary: 'bg-primary text-white hover:bg-primary-dark',
+  secondary: 'bg-secondary text-gray-800 hover:bg-secondary-dark',
+};
+
+const sizeClasses = {
+  small: 'text-sm py-1 px-3',
+  medium: 'py-2 px-4',
+  large: 'text-lg py-3 px-6',
+};
+
+const classes = `inline-block rounded font-bold transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+---
+
+{
+  href ? (
+    <a href={href} class={classes}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  /* Base styles for all buttons */
+  a,
+  button {
+    display: inline-block;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+
+  /* Primary button styles */
+  .bg-primary {
+    background-color: var(--color-primary-700);
+  }
+
+  .text-white {
+    color: white;
+  }
+
+  .hover\:bg-primary-dark:hover {
+    background-color: var(--color-primary-800);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(217, 119, 87, 0.2);
+  }
+
+  /* Secondary button styles */
+  .bg-secondary {
+    background-color: var(--color-gray-200);
+  }
+
+  .text-gray-800 {
+    color: var(--color-gray-800);
+  }
+
+  .hover\:bg-secondary-dark:hover {
+    background-color: var(--color-gray-300);
+  }
+
+  /* Size variations */
+  .text-sm {
+    font-size: 0.875rem;
+  }
+
+  .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+</style>

@@ -1,0 +1,70 @@
+:root {
+  /* Anthropic-inspired color palette */
+
+  /* Base colors */
+  --color-white: #f0eee6; /* Changed from #FFFFFF to #f0eee6 */
+  --color-off-white: #f7f6f2; /* Adjusted to match new white */
+  --color-black: #1a1a1a;
+
+  /* Gray scale */
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Primary colors - changed from purple to coral/orange */
+  --color-primary-100: #f9e9e3;
+  --color-primary-200: #f4d3c8;
+  --color-primary-300: #efbdad;
+  --color-primary-400: #eaa792;
+  --color-primary-500: #e59177;
+  --color-primary-600: #df7b5c;
+  --color-primary-700: #d97757; /* Main coral/orange */
+  --color-primary-800: #c56a4e;
+  --color-primary-900: #b15c45;
+
+  /* Secondary colors */
+  --color-secondary-100: #e6f0ff;
+  --color-secondary-200: #cce1ff;
+  --color-secondary-300: #b3d1ff;
+  --color-secondary-400: #99c2ff;
+  --color-secondary-500: #80b3ff;
+  --color-secondary-600: #66a3ff;
+  --color-secondary-700: #4d94ff;
+  --color-secondary-800: #3385ff;
+  --color-secondary-900: #1a75ff;
+
+  /* Accent colors */
+  --color-teal-100: #e6ffff;
+  --color-teal-200: #b3ffff;
+  --color-teal-300: #80ffff;
+  --color-teal-400: #4dffff;
+  --color-teal-500: #1affff;
+  --color-teal-600: #00e6e6;
+  --color-teal-700: #00cccc;
+  --color-teal-800: #00a3a3; /* Main teal */
+  --color-teal-900: #007a7a;
+
+  /* Functional colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Semantic assignments */
+  --color-background: var(--color-white); /* Now #f0eee6 */
+  --color-background-alt: var(--color-off-white); /* Now #f7f6f2 */
+  --color-text: var(--color-black);
+  --color-text-secondary: var(--color-gray-500);
+  --color-text-tertiary: var(--color-gray-400);
+  --color-border: var(--color-gray-200);
+  --color-accent: var(--color-primary-700); /* Now #d97757 */
+  --color-accent-light: var(--color-primary-100);
+  --color-accent-secondary: var(--color-secondary-500);
+  --color-accent-tertiary: var(--color-teal-800);
+}

@@ -1,0 +1,92 @@
+---
+interface Props {
+  title?: string;
+  image?: string;
+  imageAlt?: string;
+  href?: string;
+  class?: string;
+}
+
+const { title, image, imageAlt = 'Card image', href, class: className = '' } = Astro.props;
+---
+
+<div class={`card ${className}`}>
+  {
+    image && (
+      <div class="card-image">
+        <img src={image} alt={imageAlt} />
+      </div>
+    )
+  }
+  <div class="card-content">
+    {title && <h3 class="card-title">{title}</h3>}
+    <div class="card-body">
+      <slot />
+    </div>
+    {
+      href && (
+        <div class="card-footer">
+          <a href={href} class="card-link">
+            <slot name="link-text">Read More</slot>
+          </a>
+        </div>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .card {
+    background-color: var(--color-white);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-title {
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+  }
+
+  .card-body {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .card-footer {
+    margin-top: 15px;
+  }
+
+  .card-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .card-link:hover {
+    background-color: var(--color-primary-800);
+  }
+</style>

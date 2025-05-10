@@ -1,0 +1,171 @@
+---
+interface Props {
+  title?: string;
+  logos: {
+    name: string;
+    alt?: string;
+  }[];
+}
+
+const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
+---
+
+<div class="logo-carousel-wrapper">
+  <div class="logo-carousel">
+    <div class="logo-track">
+      {
+        logos.map((logo) => (
+          <div class="logo-item">
+            <div class="logo-image">
+              <img
+                src={`/logos/${logo.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.svg`}
+                alt={`${logo.name} logo`}
+                onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<span class=\'logo-name\'>' + this.alt.replace(' logo', '') + '</span>';"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="title-container">
+    <div class="title-line"></div>
+    <h3 class="carousel-title">
+      Building <span class="uppercase">AI</span> Products for Enterprise
+    </h3>
+  </div>
+</div>
+
+<style>
+  .logo-carousel-wrapper {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    padding: 15px 0 25px;
+    background-color: var(--color-background);
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .logo-carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .logo-track {
+    display: flex;
+    animation: scroll 60s linear infinite;
+    width: max-content;
+  }
+
+  .logo-item {
+    display: flex;
+    align-items: center;
+    margin: 0 35px;
+  }
+
+  .logo-image {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-image img {
+    height: 100%;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(100%);
+  }
+
+  .logo-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-item:hover .logo-name,
+  .logo-item:hover .logo-image {
+    opacity: 1;
+  }
+
+  .title-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .carousel-title {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+    opacity: 0.7;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .title-line {
+    width: 180px;
+    height: 1px;
+    background-color: var(--color-text-secondary);
+    opacity: 0.3;
+    margin-top: 15px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-item {
+      margin: 0 20px;
+    }
+
+    .logo-image {
+      height: 25px;
+    }
+
+    .logo-image img {
+      max-width: 100px;
+    }
+
+    .logo-name {
+      font-size: 0.9rem;
+    }
+
+    .title-container {
+      padding: 0 15px;
+    }
+  }
+</style>
+
+<script>
+  // Clone the logos to create a seamless loop
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.logo-track');
+    if (track) {
+      const items = track.querySelectorAll('.logo-item');
+      items.forEach((item) => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+    }
+  });
+</script>

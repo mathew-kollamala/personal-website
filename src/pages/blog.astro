@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// In a real project, this data might come from a CMS or Markdown files
+const posts = [
+  {
+    id: 1,
+    title: 'Getting Started with Astro',
+    excerpt: 'Learn how to build fast websites with Astro, a modern static site generator that delivers lightning-fast performance.',
+    date: 'May 15, 2023',
+    author: 'Your Name',
+    slug: 'getting-started-with-astro'
+  },
+  {
+    id: 2,
+    title: 'The Power of Static Site Generators',
+    excerpt: 'Explore the benefits of using static site generators for your web projects and why they might be the right choice for you.',
+    date: 'April 22, 2023',
+    author: 'Your Name',
+    slug: 'power-of-static-site-generators'
+  },
+  {
+    id: 3,
+    title: 'Designing for Accessibility',
+    excerpt: 'Discover essential practices for making your websites accessible to all users, regardless of their abilities or disabilities.',
+    date: 'March 10, 2023',
+    author: 'Your Name',
+    slug: 'designing-for-accessibility'
+  },
+  {
+    id: 4,
+    title: 'Optimizing Website Performance',
+    excerpt: 'Learn techniques and best practices for improving your website\'s loading speed and overall performance.',
+    date: 'February 5, 2023',
+    author: 'Your Name',
+    slug: 'optimizing-website-performance'
+  }
+];
+---
+
+<Layout title="Blog | My Personal Website">
+  <section class="blog-section">
+    <h1>My Blog</h1>
+    <p class="intro">Welcome to my blog where I share insights, tutorials, and thoughts on web development and design.</p>
+    
+    <div class="blog-posts">
+      {posts.map(post => (
+        <article class="blog-post">
+          <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
+          <div class="post-meta">
+            <span class="post-date">{post.date}</span>
+            <span class="post-author">by {post.author}</span>
+          </div>
+          <p class="post-excerpt">{post.excerpt}</p>
+          <a href={`/blog/${post.slug}`} class="read-more">Read More</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .blog-section {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    color: #0066cc;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .intro {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .blog-post {
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-post h2 {
+    margin-bottom: 10px;
+  }
+  
+  .blog-post h2 a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .blog-post h2 a:hover {
+    text-decoration: underline;
+  }
+  
+  .post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .post-author {
+    margin-left: 10px;
+  }
+  
+  .post-excerpt {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .read-more {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .read-more:hover {
+    background-color: #0052a3;
+  }
+</style>

@@ -1,0 +1,78 @@
+# Dependency directories
+node_modules/
+dep/
+jspm_packages/
+bower_components/
+
+# Build outputs
+.build/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+
+# Astro specific
+.astro/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# Keep example env file
+!.env.example
+
+# IDE and editor files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+*.swp
+*.swo
+.DS_Store
+*.sublime*
+.project
+.classpath
+.settings/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Coverage directories
+coverage/
+.nyc_output/
+
+# Cache directories
+.npm/
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.cache/
+.parcel-cache
+
+# Compiled binary addons
+build/Release
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+logs
+*.bak
+*.tmp
+*.temp

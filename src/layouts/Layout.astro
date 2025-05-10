@@ -1,0 +1,408 @@
+---
+import SocialIcon from '../components/SocialIcon.astro';
+import LocationIcon from '../components/LocationIcon.astro';
+import '../assets/css/colors.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'A personal website built with Astro' } = Astro.props;
+
+// Social media links
+const socialLinks = [
+  { platform: 'email', url: 'mailto:mathewgeorge96k@gmail.com', label: 'Email' },
+  { platform: 'instagram', url: 'https://www.instagram.com/mathewkollamala', label: 'Instagram' },
+  {
+    platform: 'linkedin',
+    url: 'https://www.linkedin.com/in/mathew-george-kollamala/',
+    label: 'LinkedIn',
+  },
+  { platform: 'twitter', url: 'https://x.com/MathewKollamala', label: 'X / Twitter' },
+  { platform: 'github', url: 'https://github.com/mathew-kollamala', label: 'GitHub' },
+  { platform: 'discord', url: 'https://discordapp.com/users/mathewkollamala', label: 'Discord' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <nav>
+          <div class="logo">
+            <a href="/">Mathew George</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Book Appointment</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-main">
+          <div class="footer-left">
+            <div class="logo-container">
+              <div class="personal-logo">
+                <a href="/">MG</a>
+              </div>
+              <div class="location-wrapper">
+                <LocationIcon location="San Francisco, United States" />
+              </div>
+            </div>
+
+            <div class="social-icons-container">
+              <div class="social-icons">
+                {
+                  socialLinks.map((link) => (
+                    <SocialIcon platform={link.platform} url={link.url} label={link.label} />
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-columns">
+            <div class="footer-column">
+              <h4>About</h4>
+              <ul>
+                <li><a href="/about">About Me</a></li>
+                <li><a href="/about#skills">Skills</a></li>
+                <li><a href="/about#experience">Experience</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Portfolio</h4>
+              <ul>
+                <li><a href="/portfolio">All Projects</a></li>
+                <li><a href="/portfolio#featured">Featured Work</a></li>
+                <li><a href="/portfolio#recent">Recent Projects</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Blog</h4>
+              <ul>
+                <li><a href="/blog">All Articles</a></li>
+                <li><a href="/blog#latest">Latest Posts</a></li>
+                <li><a href="/blog#topics">Topics</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Mathew George. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  /* Reset some default styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family:
+      'Inter',
+      'SF Pro Display',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 0;
+    background-color: var(--color-background);
+    z-index: 1000;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  main {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 100px; /* Add space for the fixed header */
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333333;
+    transition: color 0.2s ease;
+  }
+
+  .logo a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+
+  .nav-links li {
+    margin-left: 30px;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    padding: 5px 0;
+    position: relative;
+  }
+
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+
+  main {
+    min-height: 70vh;
+  }
+
+  footer {
+    padding: 30px 0 15px;
+    margin-top: 60px;
+    background-color: #1a1a1a; /* Black background like Anthropic's footer */
+    color: #ffffff;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo-container {
+    margin-bottom: 40px;
+  }
+
+  .personal-logo a {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .location-wrapper {
+    margin-top: 12px;
+  }
+
+  .footer-columns {
+    display: flex;
+    gap: 60px;
+  }
+
+  .social-icons-container {
+    margin-top: auto;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-column {
+    min-width: 140px;
+  }
+
+  .footer-column h4 {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-column li {
+    margin-bottom: 10px;
+  }
+
+  .footer-column a {
+    color: #9ca3af; /* Light gray for links */
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-column a:hover {
+    color: #ffffff;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    position: relative;
+    color: #9ca3af;
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    right: -100vw;
+    height: 1px;
+    background-color: #333333;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    header {
+      padding: 10px 0;
+    }
+
+    nav {
+      flex-direction: column;
+    }
+
+    .nav-links {
+      margin-top: 15px;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-links li {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+
+    main {
+      margin-top: 130px; /* Adjust for taller header on mobile */
+    }
+
+    .footer-main {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .footer-left {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-columns {
+      flex-direction: column;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .footer-column {
+      width: 100%;
+    }
+
+    .social-icons {
+      justify-content: center;
+    }
+
+    .location-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+</style>
