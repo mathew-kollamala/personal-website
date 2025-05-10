@@ -12,21 +12,29 @@ const { title, description = 'A personal website built with Astro' } = Astro.pro
 
 // Social media links
 const socialLinks = [
-  { platform: 'email', url: 'mailto:mathewgeorge96k@gmail.com', label: 'Email' },
-  { platform: 'instagram', url: 'https://www.instagram.com/mathewkollamala', label: 'Instagram' },
+  { platform: 'email' as const, url: 'mailto:mathewgeorge96k@gmail.com', label: 'Email' },
   {
-    platform: 'linkedin',
+    platform: 'instagram' as const,
+    url: 'https://www.instagram.com/mathewkollamala',
+    label: 'Instagram',
+  },
+  {
+    platform: 'linkedin' as const,
     url: 'https://www.linkedin.com/in/mathew-george-kollamala/',
     label: 'LinkedIn',
   },
-  { platform: 'twitter', url: 'https://x.com/MathewKollamala', label: 'X / Twitter' },
-  { platform: 'github', url: 'https://github.com/mathew-kollamala', label: 'GitHub' },
-  { platform: 'discord', url: 'https://discordapp.com/users/mathewkollamala', label: 'Discord' },
+  { platform: 'twitter' as const, url: 'https://x.com/MathewKollamala', label: 'X / Twitter' },
+  { platform: 'github' as const, url: 'https://github.com/mathew-kollamala', label: 'GitHub' },
+  {
+    platform: 'discord' as const,
+    url: 'https://discordapp.com/users/mathewkollamala',
+    label: 'Discord',
+  },
 ];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -141,6 +149,7 @@ const socialLinks = [
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
 
   header {
@@ -336,8 +345,9 @@ const socialLinks = [
     content: '';
     position: absolute;
     top: 0;
-    left: -100vw;
-    right: -100vw;
+    left: 0;
+    right: 0;
+    width: 100%;
     height: 1px;
     background-color: #333333;
   }
