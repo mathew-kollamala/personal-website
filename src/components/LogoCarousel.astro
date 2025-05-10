@@ -65,7 +65,7 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
 
   .logo-track {
     display: flex;
-    animation: scroll 90s linear infinite;
+    animation: scroll 80s linear infinite;
     width: max-content;
     gap: 10px; /* Add a small gap between items for more consistent spacing */
   }
@@ -152,78 +152,60 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
     }
   }
 
+  /* Custom spacing for specific logos */
+  .logo-item:has(.logo-hpi),
+  .logo-item:has(.logo-dxctechnologies),
+  .logo-item:has(.logo-usairforce) {
+    margin: 0 23px; /* Reduced from the default 50px */
+  }
+
+  .logo-item:has(.logo-veritastechnologies),
+  .logo-item:has(.logo-verizon) {
+    margin: 0 40px; /* Reduced from the default 50px */
+  }
+
+  .logo-item:has(.logo-mckesson) {
+    margin: 0 45px; /* Reduced from the default 50px */
+  }
+
   /* Custom logo sizes for specific logos */
-  .logo-seagate,
-  .logo-paloaltonetworks,
-  .logo-airbus,
-  .logo-mckesson {
+  .logo-airbus {
     height: auto !important;
     width: auto !important;
-    transform: scale(1.7);
+    transform: scale(1.8);
   }
 
   .logo-amerisourcebergen {
     height: auto !important;
     width: auto !important;
-    transform: scale(1.785); /* 5% bigger than 1.7 */
-  }
-
-  .logo-veritastechnologies {
-    height: auto !important;
-    width: auto !important;
-    transform: scale(1.53); /* 10% smaller than 1.7 */
-  }
-
-  .logo-worldpay {
-    height: auto !important;
-    width: auto !important;
-    transform: scale(1.615); /* 5% smaller than 1.7 */
-  }
-
-  .logo-boeing,
-  .logo-lumentechnologies {
-    height: auto !important;
-    width: auto !important;
-    transform: scale(1.3);
-  }
-
-  .logo-hewlettpackardenterprise {
-    height: auto !important;
-    width: auto !important;
-    transform: scale(1.1);
+    transform: scale(2.3);
   }
 
   .logo-att {
     height: auto !important;
     width: auto !important;
-    transform: scale(0.65);
+    transform: scale(0.9);
   }
 
-  .logo-segmentio {
+  .logo-boeing {
     height: auto !important;
     width: auto !important;
-    transform: scale(0.866); /* 5% bigger than 0.825 */
+    transform: scale(1.5);
+  }
+
+  .logo-dxctechnologies {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(0.8);
   }
 
   .logo-extremenetworks {
     height: auto !important;
     width: auto !important;
-    transform: scale(1.21); /* 15% bigger than 1.05 */
+    transform: scale(1.5);
   }
 
-  .logo-nbcuniversal {
-    height: auto !important;
-    width: auto !important;
-    transform: scale(1.04); /* 5% bigger than 0.99 */
-  }
-
-  .logo-usairforce {
-    height: auto !important;
-    width: auto !important;
-    transform: scale(0.75); /* 15% smaller than 0.88 */
-  }
-
-  .logo-verizon {
+  .logo-hewlettpackardenterprise {
     height: auto !important;
     width: auto !important;
     transform: scale(1.2);
@@ -232,97 +214,67 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
   .logo-hpi {
     height: auto !important;
     width: auto !important;
-    transform: scale(1.08); /* 10% smaller than 1.2 */
+    transform: scale(01);
   }
 
-  @media (max-width: 768px) {
-    .logo-item {
-      margin: 0 30px;
-      min-width: 120px; /* Ensure consistent spacing on mobile */
-    }
+  .logo-lumentechnologies {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.4);
+  }
 
-    .logo-image {
-      height: 40px;
-      min-width: 100px;
-    }
+  .logo-mckesson {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.4);
+  }
 
-    .logo-image img {
-      max-width: 120px;
-    }
+  .logo-nbcuniversal {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.2);
+  }
 
-    .logo-name {
-      font-size: 0.9rem;
-    }
+  .logo-paloaltonetworks {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.6);
+  }
 
-    .title-container {
-      padding: 0 15px;
-      text-align: left;
-    }
+  .logo-seagate {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(2.1);
+  }
 
-    .logo-carousel-wrapper {
-      width: 100vw;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-    }
+  .logo-segmentio {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.1);
+  }
 
-    /* Adjust scaling for mobile */
-    .logo-seagate,
-    .logo-paloaltonetworks,
-    .logo-airbus,
-    .logo-mckesson {
-      transform: scale(1.5);
-    }
+  .logo-usairforce {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(0.7);
+  }
 
-    .logo-amerisourcebergen {
-      transform: scale(1.575); /* 5% bigger than 1.5 */
-    }
+  .logo-veritastechnologies {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.4);
+  }
 
-    .logo-veritastechnologies {
-      transform: scale(1.35); /* 10% smaller than 1.5 */
-    }
+  .logo-verizon {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.2);
+  }
 
-    .logo-worldpay {
-      transform: scale(1.425); /* 5% smaller than 1.5 */
-    }
-
-    .logo-boeing,
-    .logo-lumentechnologies {
-      transform: scale(1.2);
-    }
-
-    .logo-hewlettpackardenterprise {
-      transform: scale(1);
-    }
-
-    .logo-att {
-      transform: scale(0.55);
-    }
-
-    .logo-segmentio {
-      transform: scale(0.751); /* 5% bigger than 0.715 */
-    }
-
-    .logo-extremenetworks {
-      transform: scale(1.09); /* 15% bigger than 0.95 */
-    }
-
-    .logo-nbcuniversal {
-      transform: scale(0.924); /* 5% bigger than 0.88 */
-    }
-
-    .logo-usairforce {
-      transform: scale(0.68); /* 15% smaller than 0.8 */
-    }
-
-    .logo-verizon {
-      transform: scale(1.1);
-    }
-
-    .logo-hpi {
-      transform: scale(0.99); /* 10% smaller than 1.1 */
-    }
+  .logo-worldpay {
+    height: auto !important;
+    width: auto !important;
+    transform: scale(1.7);
   }
 </style>
 
