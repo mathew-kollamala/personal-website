@@ -30,10 +30,12 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
   </div>
 
   <div class="title-container">
-    <div class="title-line"></div>
-    <h3 class="carousel-title">
-      Building <span class="uppercase">AI</span> Products for Enterprise
-    </h3>
+    <div class="title-wrapper">
+      <div class="title-line"></div>
+      <h3 class="carousel-title">
+        Building <span class="uppercase">AI</span> Products for Enterprise
+      </h3>
+    </div>
   </div>
 </div>
 
@@ -41,7 +43,7 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
   .logo-carousel-wrapper {
     width: 100vw;
     position: relative;
-    padding: 15px 0 25px;
+    padding: 15px 0 35px;
     background-color: var(--color-background);
     margin-top: 30px;
     margin-bottom: 30px;
@@ -56,7 +58,7 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 10px 0;
+    padding: 10px 0 25px;
     max-width: 100%;
   }
 
@@ -103,19 +105,24 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
 
   .title-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 15px auto 0;
     padding: 0 20px;
     position: relative;
     box-sizing: border-box;
+    text-align: left;
+  }
+
+  .title-wrapper {
+    display: inline-block;
   }
 
   .carousel-title {
     font-size: 0.85rem;
     font-weight: 400;
     color: var(--color-text-secondary);
-    margin-top: 6px;
     letter-spacing: 0.01em;
     opacity: 0.7;
+    margin: 0;
   }
 
   .uppercase {
@@ -123,11 +130,11 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
   }
 
   .title-line {
-    width: 180px;
     height: 1px;
     background-color: var(--color-text-secondary);
     opacity: 0.3;
-    margin-top: 15px;
+    margin-bottom: 6px;
+    width: 100%;
   }
 
   @keyframes scroll {
@@ -158,6 +165,7 @@ const { title = 'Building AI Products for Enterprise', logos } = Astro.props;
 
     .title-container {
       padding: 0 15px;
+      text-align: left;
     }
 
     .logo-carousel-wrapper {
