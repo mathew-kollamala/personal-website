@@ -78,7 +78,7 @@ const clientLogos = [
     <a href="/blog" class="btn">Read More</a>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="contact-section">
     <h2>Get in Touch</h2>
     <p>Feel free to reach out! I'd love to learn more about your passions, ideas, or projects</p>
     <a
@@ -112,29 +112,15 @@ const clientLogos = [
 <style>
   .hero {
     text-align: center;
-    padding: 80px 0;
-    background-color: var(--color-background-alt);
-    border-radius: 8px;
+    padding: 100px 0;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--color-primary-100) 0%, transparent 100%);
-    opacity: 0.6;
-    z-index: 0;
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, transparent 70%);
   }
 
   .hero > * {
     position: relative;
-    z-index: 1;
   }
 
   .hero h1 {
@@ -146,10 +132,19 @@ const clientLogos = [
 
   section {
     margin-bottom: 60px;
-    padding: 40px;
-    border-radius: 8px;
-    background-color: var(--color-background-alt);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    padding: 40px 0; /* Reduced horizontal padding for a more seamless look */
+    position: relative;
+  }
+
+  /* Add subtle separation between non-hero sections */
+  section:not(.hero):not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-gray-200), transparent);
   }
 
   h2 {
@@ -162,8 +157,8 @@ const clientLogos = [
   .blog-posts {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-    margin: 30px 0;
+    gap: 30px;
+    margin: 40px 0;
   }
 
   .project-card,
@@ -216,6 +211,23 @@ const clientLogos = [
 
   .calendar-icon {
     margin-right: 4px;
+  }
+
+  .contact-section {
+    text-align: center;
+    padding-top: 60px;
+    margin-top: 80px;
+    position: relative;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-primary-300), transparent);
   }
 
   @media (max-width: 768px) {
